@@ -1,1 +1,40 @@
 <h1>Hello Admin</h1>
+
+<%= form_with url: '/admin', method: :post, local: true, multipart: true do |form| %>
+
+  <div>
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :short_description %>
+    <%= form.text_area :short_description %>
+  </div>
+  <div>
+    <%= form.label :long_description %>
+    <%= form.text_area :long_description %>
+  </div>
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+  <div>
+    <%= form.label :youtube_video_id, "YouTube Video ID" %>
+    <%= form.text_field :youtube_video_id %>
+  </div>
+  <div>
+    <%= form.label :duration %>
+    <%= form.number_field :duration %>
+  </div>
+  <div>
+    <%= form.label :tags, "Tags (comma separated)" %>
+    <%= form.text_field :tags %>
+  </div>
+  <div>
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>
