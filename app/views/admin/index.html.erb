@@ -1,7 +1,15 @@
 <h1>Hello Admin</h1>
+<link rel="stylesheet" href="/stylesheets/admin/admin.css">
 
 <%= form_with url: '/admin', method: :post, local: true, multipart: true do |form| %>
 
+  <div>
+    <div class="youTubeIdContainer">
+    <%= form.label :youtube_video_id, "YouTube Video ID" %>
+    <p class="autofillTag">(add first for autofill)</p>
+    </div>
+    <%= form.text_field :youtube_video_id %>
+  </div>
   <div>
     <%= form.label :author %>
     <%= form.text_field :author %>
@@ -22,10 +30,7 @@
     <%= form.label :image %>
     <%= form.file_field :image %>
   </div>
-  <div>
-    <%= form.label :youtube_video_id, "YouTube Video ID" %>
-    <%= form.text_field :youtube_video_id %>
-  </div>
+
   <div>
     <%= form.label :duration %>
     <%= form.number_field :duration %>
