@@ -1,7 +1,7 @@
 <h1>Life.Church Admin Page</h1>
 <link rel="stylesheet" href="/stylesheets/admin/admin.css">
 
-<%= form_with url: '/admin', method: :post, local: true, multipart: true do |form| %>
+<%= form_with model: TrainingDatum.new, url: '/admin', method: :post, local: true, multipart: true do |form| %>
 
   <div>
     <div class="youTubeIdContainer">
