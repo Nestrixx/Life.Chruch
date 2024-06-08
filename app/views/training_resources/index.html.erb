@@ -1,4 +1,39 @@
-<h1>TrainingResources#index</h1>
-<p>Find me in app/views/training_resources/index.html.erb</p>
-<div>save me from the hamburgurler</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life.Church Training</title>
+    <link rel="stylesheet" href="/stylesheets/training_resources/training_resources.css">
+</head>
+<h1>Training Data List</h1>
 
+<table>
+  <thead>
+    <tr>
+      <th>YouTube Video ID</th>
+      <th>Author</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Duration</th>
+      <th>Tags</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @training_data.each do |data| %>
+      <tr>
+        <td><%= data.youtube_video_id %></td>
+        <td><%= data.author %></td>
+        <td><%= data.title %></td>
+        <td><%= data.short_description %></td>
+        <td><%= data.duration %></td>
+        <td><%= data.tags %></td>
+        <td>
+        <%= button_to 'Delete', training_resource_path(data.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-button" %>
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</html>

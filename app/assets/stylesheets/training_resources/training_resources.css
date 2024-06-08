@@ -1,0 +1,58 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f8ff;
+}
+
+h1 {
+  color: #1a8cff;
+}
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+.youTubeIdContainer {
+  color: #FF6347;
+}
+
+.autofillTag {
+  font-style: italic;
+  color: #20B2AA;
+}
+
+.edit-link, .delete-link {
+  padding: 5px 10px;
+  margin-right: 5px;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.edit-link {
+  background-color: #4CAF50;
+}
+
+.delete-link {
+  background-color: #f44336;
+}

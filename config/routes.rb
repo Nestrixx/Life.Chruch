@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'marketing', to: 'marketing#index'
   get 'training_resources/index'
+  resources :training_resources do
+    resources :training_data
+  end
   get 'admin', to: 'admin#index'
   post 'admin', to: 'admin#create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
