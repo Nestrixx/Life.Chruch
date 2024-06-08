@@ -14,8 +14,14 @@
  *= require_self
  */
 
+header{
+  color: white;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-style: normal;
+    background-color: #2C2F33;
+    color: white;
   }

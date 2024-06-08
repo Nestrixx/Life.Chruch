@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_08_005105) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_08_020246) do
   create_table "training_data", force: :cascade do |t|
     t.string "youtube_video_id"
     t.string "author"
     t.string "title"
     t.text "short_description"
     t.text "long_description"
-    t.integer "duration"
+    t.string "duration"
     t.string "tags"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
