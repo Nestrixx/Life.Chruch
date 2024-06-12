@@ -22,11 +22,15 @@ class TrainingResourcesController < ApplicationController
     end
   end
 
-  def edit
-    @training_datum = TrainingDatum.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.json { render json: @training_datum }
+  def update
+    @training_resources = TrainingDatum.find(params[:id])
+    if @training_resources.update(training_data_params)
+      respond_to do |format|
+        format.html { redirect_to training_resources_url, notice: 'Training data was successfully updated.' }
+        format.json { render json: @training_resources }
+      end
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

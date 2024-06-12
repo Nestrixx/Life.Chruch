@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="/stylesheets/training_resources/training_resources.css">
   </head>
   <h1>Admin Panel</h1>
-  <%= form_with model: TrainingDatum.new, url: training_resources_path, method: :post, local: true, multipart: true do |form| %>
+  <%= form_with model: TrainingDatum.new, url: training_resources_path, method: :post, id: "training-form", local: true, multipart: true do |form| %>
 
 
     <div>

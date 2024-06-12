@@ -18,6 +18,7 @@ const loadTrainingData = async (id) => {
 }
 
 function populateForm(trainingData) {
+  // populate form
   document.querySelector('input[name="training_datum[youtube_video_id]"]').value = trainingData.youtube_video_id || '';
   document.querySelector('input[name="training_datum[author]"]').value = trainingData.author || '';
   document.querySelector('input[name="training_datum[title]"]').value = trainingData.title || '';
@@ -25,4 +26,21 @@ function populateForm(trainingData) {
   document.querySelector('textarea[name="training_datum[long_description]"]').value = trainingData.long_description || '';
   document.querySelector('input[name="training_datum[duration]"]').value = trainingData.duration || '';
   document.querySelector('input[name="training_datum[tags]"]').value = trainingData.tags || '';
+
+  // modify form for update
+  addOrUpdateHiddenMethodField(trainingData);
+}
+
+function addOrUpdateHiddenMethodField(trainingData) {
+  const form = document.getElementById('training-form');
+  // modify submission route to edit route instead of create new
+  form.action = `/training_resources/${trainingData.id}`;
+
+  // appends a hidden form field to our form and setting the value to patch for the input.
+  const hiddenMethodField = document.createElement('input');
+  hiddenMethodField.type = 'hidden';
+  hiddenMethodField.name = '_method';
+  hiddenMethodField.value = "patch";
+  form.appendChild(hiddenMethodField);
+
 }
