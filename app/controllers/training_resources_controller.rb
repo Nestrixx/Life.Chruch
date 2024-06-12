@@ -22,6 +22,21 @@ class TrainingResourcesController < ApplicationController
     end
   end
 
+  def edit
+    @training_datum = TrainingDatum.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @training_datum }
+    end
+  end
+
+  def fetch_training
+    training_resource = TrainingDatum.find(params[:id])
+    respond_to do |format|
+      format.json { render json: training_resource }
+    end
+  end
+
   private
   def set_training_resources
     @training_resources = TrainingDatum.find(params[:id])

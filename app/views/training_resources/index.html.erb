@@ -1,85 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life.Church Training</title>
-    <link rel="stylesheet" href="/stylesheets/training_resources/training_resources.css">
-</head>
-<h1>Admin Panel</h1>
-<%= form_with model: TrainingDatum.new, url: training_resources_path, method: :post, local: true, multipart: true do |form| %>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Life.Church Training</title>
+      <link rel="stylesheet" href="/stylesheets/training_resources/training_resources.css">
+  </head>
+  <h1>Admin Panel</h1>
+  <%= form_with model: TrainingDatum.new, url: training_resources_path, method: :post, local: true, multipart: true do |form| %>
 
-  <div>
-    <div class="youTubeIdContainer">
-    <%= form.label :youtube_video_id, "YouTube Video ID" %>
-    <p class="autofillTag">(add first for autofill)</p>
+
+    <div>
+      <div class="youTubeIdContainer">
+      <%= form.label :youtube_video_id, "YouTube Video ID" %>
+      <p class="autofillTag">(add first for autofill)</p>
+      </div>
+      <%= form.text_field :youtube_video_id %>
     </div>
-    <%= form.text_field :youtube_video_id %>
-  </div>
-  <div>
-    <%= form.label :author %>
-    <%= form.text_field :author %>
-  </div>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div>
-    <%= form.label :short_description %>
-    <%= form.text_area :short_description %>
-  </div>
-  <div>
-    <%= form.label :long_description %>
-    <%= form.text_area :long_description %>
-  </div>
-  <div>
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+    <div>
+      <%= form.label :author %>
+      <%= form.text_field :author %>
+    </div>
+    <div>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+    <div>
+      <%= form.label :short_description %>
+      <%= form.text_area :short_description %>
+    </div>
+    <div>
+      <%= form.label :long_description %>
+      <%= form.text_area :long_description %>
+    </div>
+    <div>
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+
+    <div>
+      <%= form.label :duration %>
+      <%= form.text_field :duration %>
+    </div>
+    <div>
+      <%= form.label :tags, "Tags (comma separated)" %>
+      <%= form.text_field :tags %>
+    </div>
+    <div>
+      <%= form.submit "Submit" %>
+    </div>
+  <% end %>
+  <hr />
+
+  <h2 class="trainingListHeader">Training Data List</h2>
+
+  <div class="card-container">
+      <% @training_data.each do |data| %>
+      <div class="card">
+          <div class="card-header">
+              <h3><%= data.title %></h3>
+              <h4>By <%= data.author %></h4>
+          </div>
+          <div class="card-body">
+              <p><%= data.short_description %></p>
+              <span>Duration: <%= data.duration %></span>
+          </div>
+  <div class="card-footer">
+      <%= button_to 'Update', edit_training_resource_path(data.id), method: :get, form: { class: 'button-as-link' }, data: { id: data.id }, class: 'update-button' %>
+      <%= button_to 'Delete', training_resource_path(data.id), method: :delete, data: { confirm: 'Are you sure?', id: data.id }, class: "delete-button" %>
   </div>
 
-  <div>
-    <%= form.label :duration %>
-    <%= form.text_field :duration %>
-  </div>
-  <div>
-    <%= form.label :tags, "Tags (comma separated)" %>
-    <%= form.text_field :tags %>
-  </div>
-  <div>
-    <%= form.submit "Submit" %>
-  </div>
-<% end %>
-<hr />
-
-<h2>Training Data List</h2>
-
-
-<table>
-  <thead>
-    <tr>
-      <th>YouTube Video ID</th>
-      <th>Author</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Duration</th>
-      <th>Tags</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @training_data.each do |data| %>
-      <tr>
-        <td><%= data.youtube_video_id %></td>
-        <td><%= data.author %></td>
-        <td><%= data.title %></td>
-        <td><%= data.short_description %></td>
-        <td><%= data.duration %></td>
-        <td><%= data.tags %></td>
-        <td>
-        <%= button_to 'Delete', training_resource_path(data.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-button" %>
-      </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</html>
+      </div>
+      <% end %>
+  </html>

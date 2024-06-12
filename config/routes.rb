@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   get 'marketing', to: 'marketing#index'
   get 'training_resources/index'
+
   resources :training_resources do
     resources :training_data
+    member do 
+      get 'fetch_training'
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

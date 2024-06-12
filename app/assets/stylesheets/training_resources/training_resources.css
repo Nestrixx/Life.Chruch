@@ -1,58 +1,44 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f8ff;
+.trainingListHeader{
+  text-align: center;
 }
 
-h1 {
-  color: #1a8cff;
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-table {
-  width: 80%;
-  margin: 20px auto;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #4CAF50;
-  color: white;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-tr:hover {
-  background-color: #ddd;
-}
-
-.youTubeIdContainer {
-  color: #FF6347;
-}
-
-.autofillTag {
-  font-style: italic;
-  color: #20B2AA;
-}
-
-.edit-link, .delete-link {
-  padding: 5px 10px;
-  margin-right: 5px;
-  text-decoration: none;
-  color: white;
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+  width: 300px;
   border-radius: 5px;
+  background-color: #CECAC2;
+  color: black;
 }
 
-.edit-link {
-  background-color: #4CAF50;
+.card-header, .card-body, .card-footer {
+  padding: 10px;
 }
 
-.delete-link {
-  background-color: #f44336;
+.card-header > h3 {
+  margin-top: 0;
+}
+
+.card-footer {
+  text-align: right;
+  border-top: 1px solid #eee;
+}
+
+.footerWrapper{
+  background-color: #333;
+}
+
+.footerWrapper button {
+  background-color: transparent;
+  border: none;
+}
+
+.footerWrapper a{
+  color: white;
 }
