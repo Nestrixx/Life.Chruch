@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       get 'fetch_training'
     end
   end
+
+  get 'training_details', to: 'training_details#show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
