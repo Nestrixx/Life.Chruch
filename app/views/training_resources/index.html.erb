@@ -58,7 +58,7 @@
       <% @training_data.each do |data| %>
       <div class="card">
           <div class="card-header">
-              <h3><%= data.title %></h3>
+               <h3><%= link_to data.title, training_detail_path(data.id) %></h3>
               <h4>By <%= data.author %></h4>
           </div>
           <div class="card-body">
