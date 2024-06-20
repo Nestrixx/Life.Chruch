@@ -13,34 +13,33 @@
     <div>
       <div class="youTubeIdContainer">
       <%= form.label :youtube_video_id, "YouTube Video ID" %>
-      <p class="autofillTag">(add first for autofill)</p>
       </div>
-      <%= form.text_field :youtube_video_id %>
+      <%= form.text_field :youtube_video_id, id: "youtube-url-input" %>
     </div>
     <div>
       <%= form.label :author %>
-      <%= form.text_field :author %>
+      <%= form.text_field :author, id: "author" %>
     </div>
     <div>
       <%= form.label :title %>
-      <%= form.text_field :title %>
+      <%= form.text_field :title, id: "title"%>
     </div>
     <div>
       <%= form.label :short_description %>
-      <%= form.text_area :short_description %>
+      <%= form.text_area :short_description, id: "short_description" %>
     </div>
     <div>
       <%= form.label :long_description %>
-      <%= form.text_area :long_description %>
+      <%= form.text_area :long_description, id: "long_description" %>
     </div>
     <div>
       <%= form.label :image %>
-      <%= form.file_field :image %>
+      <%= form.file_field :image, id: "thumbnail" %>
     </div>
 
     <div>
       <%= form.label :duration %>
-      <%= form.text_field :duration %>
+      <%= form.text_field :duration, id: "duration" %>
     </div>
     <div>
       <%= form.label :tags, "Tags (comma separated)" %>

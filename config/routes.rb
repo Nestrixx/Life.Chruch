@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'fetch_youtube_details', to: 'youtube#fetch_youtube_details'
+
   get 'training_details/:id', to: 'training_details#show', as: 'training_detail'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
