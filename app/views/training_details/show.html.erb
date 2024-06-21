@@ -6,16 +6,30 @@
       <title>Life.Church Training</title>
       <link rel="stylesheet" href="/stylesheets/training_details/training_details.css">
   </head>
+  <body>
+    <body>
+    <nav class="top-nav">
+    <div class="nav-logo">
+        <a href="/"><%= image_tag('life.church.svg', alt: 'Life.Chruch Logo') %></a>
+    </div>
+    <div class="nav-links">
+        <a href="/training_resources">Trainings</a>
+        <a href="/">Home</a>
+    </div>
+    </nav>
+    <header>
+        <h1>Training Details</h1>
+    </header>
+    <div class="training-details">
+      <h1><%= @training_datum.title %></h1>
+      
+      <%= image_tag @training_datum.image, alt: "Training Image", class: "training-image" %>
 
-<div class="training-details">
-  <h1><%= @training_datum.title %></h1>
-  
-  <%= image_tag @training_datum.image, alt: "Training Image", class: "training-image" %>
-
-  <div class="info">
-    <p><strong>ID:</strong> <%= @training_datum.id %></p>
-    <p><strong>Name:</strong> <%= @training_datum.title %></p>
-    <p><strong>Author:</strong> <%= @training_datum.author %></p>
-    <p><strong>Runtime:</strong> <%= @training_datum.duration %></p>
-  </div>
-</div>
+      <div class="info">
+        <p><strong>ID:</strong> <%= @training_datum.id %></p>
+        <p><strong>Name:</strong> <%= @training_datum.title %></p>
+        <p><strong>Author:</strong> <%= @training_datum.author %></p>
+        <p><strong>Runtime:</strong> <%= @training_datum.duration %></p>
+      </div>
+    </div>
+</body>
