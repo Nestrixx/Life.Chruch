@@ -1,24 +1,9 @@
-# README
+# Life.Church Training
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is a CRUD application for Life.Church trainings. It consists of three different pages:
+- landing/marketing page
+- training listings page
+- detailed page for each training 
+- and a non-authenticated admin section for straightforward management of these resources

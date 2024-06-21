@@ -24,7 +24,7 @@ function populateForm(trainingData) {
   document.querySelector('input[name="training_datum[title]"]').value = trainingData.title || '';
   document.querySelector('textarea[name="training_datum[short_description]"]').value = trainingData.short_description || '';
   document.querySelector('textarea[name="training_datum[long_description]"]').value = trainingData.long_description || '';
-  document.querySelector('input[name="training_datum[duration]"]').value = trainingData.duration || '';
+  document.querySelector('input[name="training_datum[duration]"]').value = duration || '';
   document.querySelector('input[name="training_datum[tags]"]').value = trainingData.tags || '';
   document.querySelector('input[name="training_datum[image]"]').value = trainingData.image || "";
 
