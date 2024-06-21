@@ -26,6 +26,7 @@ function populateForm(trainingData) {
   document.querySelector('textarea[name="training_datum[long_description]"]').value = trainingData.long_description || '';
   document.querySelector('input[name="training_datum[duration]"]').value = trainingData.duration || '';
   document.querySelector('input[name="training_datum[tags]"]').value = trainingData.tags || '';
+  document.querySelector('input[name="training_datum[image]"]').value = trainingData.image || "";
 
   // modify form for update
   addOrUpdateHiddenMethodField(trainingData);

@@ -1,8 +1,9 @@
-<h1>Life.Church</h1>
-<p>Some exciting marketing content goes here.</p>
-<% if @training_datum.image.attached? %>
-  <%= image_tag @training_datum.image, alt: "Training Image" %>
-<% else %>
-  <p>No image available.</p>
-<% end %>
-<p>Title: <%= @training_datum.title %></p>
+<p>
+  <strong>ID:</strong>
+  <%= @training_datum.id %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @training_datum.title %>
+</p>
+<%= image_tag @training_datum.image, alt: "Training Image" %>

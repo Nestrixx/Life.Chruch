@@ -48,5 +48,5 @@ class TrainingResourcesController < ApplicationController
 
   def training_data_params
     params.require(:training_datum).permit(:youtube_video_id, :author, :title, :short_description, :long_description, :image, :duration, :tags)
-  end
+  end  
 end
