@@ -1,0 +1,32 @@
+.training-details {
+    max-width: 800px;
+    margin: auto;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .training-details h1 {
+    color: white;
+    text-align: center;
+  }
+  
+  .training-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+  }
+  
+  .info p {
+    font-size: 16px;
+    color: white;
+    margin: 10px 0;
+  }
+  
+  .info strong {
+    color: white;
+  }
+  

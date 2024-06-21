@@ -1,9 +1,21 @@
-<p>
-  <strong>ID:</strong>
-  <%= @training_datum.id %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @training_datum.title %>
-</p>
-<%= image_tag @training_datum.image, alt: "Training Image" %>
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Life.Church Training</title>
+      <link rel="stylesheet" href="/stylesheets/training_details/training_details.css">
+  </head>
+
+<div class="training-details">
+  <h1><%= @training_datum.title %></h1>
+  
+  <%= image_tag @training_datum.image, alt: "Training Image", class: "training-image" %>
+
+  <div class="info">
+    <p><strong>ID:</strong> <%= @training_datum.id %></p>
+    <p><strong>Name:</strong> <%= @training_datum.title %></p>
+    <p><strong>Author:</strong> <%= @training_datum.author %></p>
+    <p><strong>Runtime:</strong> <%= @training_datum.duration %></p>
+  </div>
+</div>
