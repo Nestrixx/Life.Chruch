@@ -6,74 +6,85 @@
       <title>Life.Church Training</title>
       <link rel="stylesheet" href="/stylesheets/training_resources/training_resources.css">
   </head>
-  <h1>Admin Panel</h1>
-  <%= form_with model: TrainingDatum.new, url: training_resources_path, method: :post, id: "training-form", local: true, multipart: true do |form| %>
-
-
-    <div>
-      <div class="youTubeIdContainer">
-      <%= form.label :youtube_video_id, "YouTube Video ID" %>
+  <body>
+    <nav class="top-nav">
+      <div class="nav-logo">
+        <a href="/"><%= image_tag('life.church.svg', alt: 'Life.Chruch Logo') %></a>
       </div>
-      <%= form.text_field :youtube_video_id, id: "youtube-url-input" %>
-    </div>
-    <div>
-      <%= form.label :author %>
-      <%= form.text_field :author, id: "author" %>
-    </div>
-    <div>
-      <%= form.label :title %>
-      <%= form.text_field :title, id: "title"%>
-    </div>
-    <div>
-      <%= form.label :short_description %>
-      <%= form.text_area :short_description, id: "short_description" %>
-    </div>
-    <div>
-      <%= form.label :long_description %>
-      <%= form.text_area :long_description, id: "long_description" %>
-    </div>
-    <div>
-      <%= form.label :image %>
-      <%= form.text_field :image, id: "thumbnail", placeholder: "Enter image URL" %>
+      <div class="nav-links">
+        <a href="/training_resources">Trainings</a>
+        <a href="/">Home</a>
+      </div>
+    </nav>
+    <h1>Admin Panel</h1>
+    <%= form_with model: TrainingDatum.new, url: training_resources_path, method: :post, id: "training-form", local: true, multipart: true do |form| %>
 
-    </div>
 
-    <div>
-      <%= form.label :duration %>
-      <%= form.text_field :duration, id: "duration" %>
-    </div>
-    <div>
-      <%= form.label :tags, "Tags (comma separated)" %>
-      <%= form.text_field :tags %>
-    </div>
-    <div>
-      <%= form.submit "Submit" %>
-    </div>
+      <div>
+        <div class="youTubeIdContainer">
+        <%= form.label :youtube_video_id, "YouTube Video ID" %>
+        </div>
+        <%= form.text_field :youtube_video_id, id: "youtube-url-input" %>
+      </div>
+      <div>
+        <%= form.label :author %>
+        <%= form.text_field :author, id: "author" %>
+      </div>
+      <div>
+        <%= form.label :title %>
+        <%= form.text_field :title, id: "title"%>
+      </div>
+      <div>
+        <%= form.label :short_description %>
+        <%= form.text_area :short_description, id: "short_description" %>
+      </div>
+      <div>
+        <%= form.label :long_description %>
+        <%= form.text_area :long_description, id: "long_description" %>
+      </div>
+      <div>
+        <%= form.label :image %>
+        <%= form.text_field :image, id: "thumbnail", placeholder: "Enter image URL" %>
+
+      </div>
+
+      <div>
+        <%= form.label :duration %>
+        <%= form.text_field :duration, id: "duration" %>
+      </div>
+      <div>
+        <%= form.label :tags, "Tags (comma separated)" %>
+        <%= form.text_field :tags %>
+      </div>
+      <div>
+        <%= form.submit "Submit" %>
+      </div>
+    <% end %>
+    <hr />
+
+    <h2 class="trainingListHeader">Training Data List</h2>
+
+    <div class="card-container">
+        <% @training_data.each do |data| %>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="details-link"><%= link_to data.title, training_detail_path(data.id) %></h3>
+                <h4>By <%= data.author %></h4>
+            </div>
+            <div class="card-body">
+                <p><%= data.short_description %></p>
+                <span>Duration: <%= data.duration %></span>
+            </div>
+    <div class="card-footer">
+        <%= link_to 'View Details', training_detail_path(data.id), class: 'link-button' %>
+        <%= link_to 'Update', edit_training_resource_path(data.id), method: :get, form: { class: 'button-as-link' }, data: { id: data.id }, class: 'update-button' %>
+        <%= button_to training_resource_path(data.id), method: :delete, form_class: 'form-button-to', data: { confirm: 'Are you sure?', id: data.id } do %>
+    Delete
   <% end %>
-  <hr />
 
-  <h2 class="trainingListHeader">Training Data List</h2>
+    </div>
 
-  <div class="card-container">
-      <% @training_data.each do |data| %>
-      <div class="card">
-          <div class="card-header">
-               <h3 class="details-link"><%= link_to data.title, training_detail_path(data.id) %></h3>
-              <h4>By <%= data.author %></h4>
-          </div>
-          <div class="card-body">
-              <p><%= data.short_description %></p>
-              <span>Duration: <%= data.duration %></span>
-          </div>
-  <div class="card-footer">
-      <%= link_to 'View Details', training_detail_path(data.id), class: 'link-button' %>
-      <%= link_to 'Update', edit_training_resource_path(data.id), method: :get, form: { class: 'button-as-link' }, data: { id: data.id }, class: 'update-button' %>
-      <%= button_to training_resource_path(data.id), method: :delete, form_class: 'form-button-to', data: { confirm: 'Are you sure?', id: data.id } do %>
-  Delete
-<% end %>
-
-  </div>
-
-      </div>
-      <% end %>
+        </div>
+  <% end %>
+  </body>
   </html>
