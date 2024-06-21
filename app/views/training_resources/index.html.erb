@@ -58,7 +58,7 @@
       <% @training_data.each do |data| %>
       <div class="card">
           <div class="card-header">
-               <h3><%= link_to data.title, training_detail_path(data.id) %></h3>
+               <h3 class="details-link"><%= link_to data.title, training_detail_path(data.id) %></h3>
               <h4>By <%= data.author %></h4>
           </div>
           <div class="card-body">
@@ -66,8 +66,12 @@
               <span>Duration: <%= data.duration %></span>
           </div>
   <div class="card-footer">
-      <%= button_to 'Update', edit_training_resource_path(data.id), method: :get, form: { class: 'button-as-link' }, data: { id: data.id }, class: 'update-button' %>
-      <%= button_to 'Delete', training_resource_path(data.id), method: :delete, data: { confirm: 'Are you sure?', id: data.id }, class: "delete-button" %>
+      <%= link_to 'View Details', training_detail_path(data.id), class: 'link-button' %>
+      <%= link_to 'Update', edit_training_resource_path(data.id), method: :get, form: { class: 'button-as-link' }, data: { id: data.id }, class: 'update-button' %>
+      <%= button_to training_resource_path(data.id), method: :delete, form_class: 'form-button-to', data: { confirm: 'Are you sure?', id: data.id } do %>
+  Delete
+<% end %>
+
   </div>
 
       </div>
